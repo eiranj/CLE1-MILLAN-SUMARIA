@@ -23,7 +23,7 @@ public class BraceletG extends AppCompatActivity {
         button = findViewById(R.id.checkoutbtn);
         button.setOnClickListener(v -> {
 
-        int BasePrice = 15300;
+        int BasePrice = 18500;
         int LaborCost = 3000;
         int diamond = 0;
         int amethyst = 0;

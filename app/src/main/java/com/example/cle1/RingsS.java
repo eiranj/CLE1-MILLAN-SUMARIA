@@ -26,7 +26,7 @@ public class RingsS extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                int BasePrice = 13300;
+                int BasePrice = 3500;
                 int LaborCost = 3000;
                 int diamond = 0;
                 int amethyst = 0;
