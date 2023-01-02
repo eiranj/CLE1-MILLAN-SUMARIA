@@ -7,10 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mListView = findViewById(R.id.listview);
+
+        Button ref = findViewById(R.id.csv);
+        ref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                post();
+            }
+        });
 
         MyAdapter adapter = new MyAdapter();
         mListView.setAdapter(adapter);
@@ -75,5 +92,9 @@ public class MainActivity extends AppCompatActivity {
             imageView.setImageResource(images[position]);
             return  convertView;
         }
+    }
+    public void post(){
+        Intent intent = new Intent(this, InAppReference.class);
+        startActivity(intent);
     }
 }
