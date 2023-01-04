@@ -2,15 +2,15 @@ package com.example.cle1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.Toast;
 
 public class BraceletS extends AppCompatActivity {
     CheckBox cbone, cbtwo, cbthree;
-    Button retailbtn, wholesalebtn, button;
+    Button retailbtn, wholesalebtn, button, button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,9 @@ public class BraceletS extends AppCompatActivity {
         cbtwo = findViewById(R.id.ruby);
         cbthree = findViewById(R.id.amethyst);
 
-        button = findViewById(R.id.checkoutbtn2);
+        button = findViewById(R.id.add);
         button.setOnClickListener(v -> {
+
 
             int BasePrice = 4300;
             int LaborCost = 3000;
@@ -29,7 +30,6 @@ public class BraceletS extends AppCompatActivity {
             int amethyst = 0;
             int ruby = 0;
             int OverheadCost = 2500;
-
             StringBuilder Result = new StringBuilder();
             Result.append("Selected Gems: \nOverhead Cost = ₱2500 \nLabor Cost = ₱3000");
 
@@ -50,11 +50,10 @@ public class BraceletS extends AppCompatActivity {
                 ruby = 27867;
             }
 
+
             int Retail = BasePrice + diamond + amethyst + ruby + LaborCost + OverheadCost;
             int Wholesale = (BasePrice + diamond + amethyst + ruby + LaborCost + OverheadCost) / 2;
             double Wholesale2 = Math.round((BasePrice + LaborCost + OverheadCost) / 2.20);
-            Toast.makeText(BraceletS.this, Result.toString(), Toast.LENGTH_SHORT).show();
-
             retailbtn = findViewById(R.id.RtlBtn);
             retailbtn.setOnClickListener(view -> {
                 String resultMessage = ("₱" + Retail + "");
@@ -73,6 +72,30 @@ public class BraceletS extends AppCompatActivity {
                 dialogFragmentImp.setArguments(args);
                 dialogFragmentImp.show(getSupportFragmentManager(), "Total Payment");
 
+            });
+            button2 = findViewById(R.id.checkoutbtn2);
+            int finalDiamond = diamond;
+            int finalRuby = ruby;
+            int finalAmethyst = amethyst;
+            button2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String BasePricestr = String.valueOf(BasePrice);
+                    String LaborCoststr = String.valueOf(LaborCost);
+                    String OverheadCoststr = String.valueOf(OverheadCost);
+                    String Diamondstr = String.valueOf(finalDiamond);
+                    String Rubystr = String.valueOf(finalRuby);
+                    String Amethyststr = String.valueOf(finalAmethyst);
+                    Intent intent = new Intent(BraceletS.this, Checkout.class);
+
+                    intent.putExtra("basepricestr", BasePricestr);
+                    intent.putExtra("laborcoststr", LaborCoststr);
+                    intent.putExtra("overheadcoststr", OverheadCoststr);
+                    intent.putExtra("diamondstr", Diamondstr);
+                    intent.putExtra("rubystr", Rubystr);
+                    intent.putExtra("amethyststr", Amethyststr);
+                    startActivity(intent);
+                }
             });
         });
     }
