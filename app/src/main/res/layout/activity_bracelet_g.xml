@@ -109,33 +109,13 @@
                     android:layout_marginTop="55dp"
                     android:columnCount="2"
 
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.478">
 
-                    <Button
-                        android:id="@+id/RtlBtn"
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        android:layout_margin="5sp"
-                        android:backgroundTint="#ECCBC8"
-                        android:text="Retail"
-                        android:textColor="#040404"
-                        android:textStyle="bold" />
-
-
-                    <Button
-
-                        android:id="@+id/WhsBtn"
-                        android:layout_row="0"
-                        android:layout_column="1"
-                        android:layout_margin="5sp"
-                        android:backgroundTint="#ECCBC8"
-                        android:text="Wholesale"
-                        android:textColor="#000000"
-                        android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/checkoutbtn"
@@ -151,8 +131,8 @@
                         android:id="@+id/add"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="0"
+                        android:layout_row="0"
+                        android:layout_column="1"
                         android:backgroundTint="#ECCBC8"
                         android:text="TOTAL"
                         android:textColor="#000000"

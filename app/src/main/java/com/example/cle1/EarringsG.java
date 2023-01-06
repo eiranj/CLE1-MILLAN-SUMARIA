@@ -52,36 +52,8 @@ public class EarringsG extends AppCompatActivity {
                 ruby = 27867;
             }
 
-            int Retail = BasePrice + diamond + amethyst + ruby + LaborCost + OverheadCost;
-            int Wholesale = (BasePrice + diamond + amethyst + ruby + LaborCost + OverheadCost) / 2;
-            double Wholesale2 = Math.round((BasePrice + LaborCost + OverheadCost) / 2.20);
 
-            retailbtn = findViewById(R.id.RtlBtn);
-            retailbtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String resultMessage = ("₱" + Retail + "");
-                    Bundle args = new Bundle();
-                    args.putString("result", resultMessage);
-                    DialogFragmentCustom dialogFragmentImp = new DialogFragmentCustom();
-                    dialogFragmentImp.setArguments(args);
-                    dialogFragmentImp.show(getSupportFragmentManager(), "Total Payment");
-                }
-            });
-            wholesalebtn = findViewById(R.id.WhsBtn);
-            wholesalebtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String resultMessage = ("₱" + Wholesale + " each for minimum of 20 orders. \n ₱" + Wholesale2 + " each for 30 orders and more.");
-                    Bundle args = new Bundle();
-                    args.putString("result", resultMessage);
-                    DialogFragmentCustom dialogFragmentImp = new DialogFragmentCustom();
-                    dialogFragmentImp.setArguments(args);
-                    dialogFragmentImp.show(getSupportFragmentManager(), "Total Payment");
-
-                }
-            });
-            button2 = findViewById(R.id.checkoutbtneg);
+            button2 = findViewById(R.id.checkoutbtn);
             int finalDiamond = diamond;
             int finalRuby = ruby;
             int finalAmethyst = amethyst;
